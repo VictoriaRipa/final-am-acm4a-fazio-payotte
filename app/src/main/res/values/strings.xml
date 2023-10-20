@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">ListMaker</string>
     <string name="boton_ingresar">INGRESAR</string>
+    <string name="titulo">titulo,falta:lista-texto editable-boton añadir</string>
+
+    textoEditable
 </resources>
