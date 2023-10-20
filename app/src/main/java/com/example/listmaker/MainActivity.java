@@ -2,11 +2,11 @@ package com.example.listmaker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -14,13 +14,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-    public void showToast(View view) {
-        String msg = "Hello Toast!";
-        Toast toast = Toast.makeText(
-                this, msg, Toast.LENGTH_LONG);
-        toast.show();
-        TextView textView = findViewById(R.id.botonIngresar);
-        textView.setText("ingresando..");
+    public void ingresando(View view){
+        Intent ingresarAPrimerVista =new Intent(this,VistaDos.class);
+        startActivity(ingresarAPrimerVista);
     }
+
+
 
 }
