@@ -9,6 +9,7 @@
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/material_dynamic_neutral50"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -16,17 +17,45 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+
             <TextView
                 android:id="@+id/textoBienvenidos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="BIENVENIDOS"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:textStyle="italic"
+                android:text="BIENVENIDOS!!"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <TextView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="L"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textoBienvenidos"
+                app:layout_constraintVertical_bias="0.493" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
 
     </TableRow>
 
