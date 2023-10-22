@@ -10,6 +10,7 @@
         android:id="@+id/backgroundImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:contentDescription="@string/descripcionFondo"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_launcher_foreground" />
 
@@ -18,41 +19,46 @@
         android:id="@+id/tituloSegundaVista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LISTMAKER"
+        android:text="@string/app_name"
         android:textColor="@color/black"
         android:textSize="34sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/taskEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ingrese una tarea"
+        android:layout_marginTop="28dp"
+        android:hint="@string/editTextIngreseSuTarea"
+        android:inputType="text"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tituloSegundaVista" />
+        app:layout_constraintTop_toBottomOf="@+id/tituloSegundaVista"
+       />
 
     <Button
         android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Agregar Tarea"
-        app:layout_constraintTop_toBottomOf="@+id/taskEditText"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/black"
+        android:text="@string/buttonAgreagrTarea"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/taskEditText" />
+
 
     <ListView
         android:id="@+id/taskListView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         app:layout_constraintTop_toBottomOf="@+id/addButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

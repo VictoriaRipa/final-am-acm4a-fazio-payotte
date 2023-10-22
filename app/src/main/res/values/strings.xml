@@ -1,4 +1,10 @@
 <resources>
-    <string name="app_name">ListMaker</string>
+    <string name="app_name">LISTMAKER</string>
+    <string name="LDLogo">L</string>
     <string name="boton_ingresar">INGRESAR</string>
+    <string name="textoBienvenidos">BIENVENIDOS</string>
+    <string name="descripcionFondo">TODO</string>
+    <string name="editTextIngreseSuTarea">ingrese su tarea</string>
+    <string name="buttonAgreagrTarea">Agregar Tarea</string>
+
 </resources>
