@@ -5,8 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -14,11 +13,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-    public void ingresando(View view){
-        Intent ingresarAPrimerVista =new Intent(this,VistaDos.class);
-        startActivity(ingresarAPrimerVista);
-    }
 
+    public void menu(View view){
+        Intent menu =new Intent(this,Menu.class);
+        startActivity(menu);
+    }
 
 
 }

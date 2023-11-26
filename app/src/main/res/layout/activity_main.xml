@@ -75,7 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#050505"
-                android:onClick="ingresando"
+                android:onClick="menu"
                 android:text="@string/boton_ingresar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -83,6 +83,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/nombreDeApp"
                 app:layout_constraintVertical_bias="0.378" />
+
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

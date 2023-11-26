@@ -39,17 +39,18 @@
         app:layout_constraintTop_toBottomOf="@+id/tituloSegundaVista"
        />
 
+
     <Button
         android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="@color/black"
         android:text="@string/buttonAgreagrTarea"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.099"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/taskEditText" />
-
 
     <ListView
         android:id="@+id/taskListView"
@@ -59,6 +60,20 @@
         app:layout_constraintTop_toBottomOf="@+id/addButton"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:id="@+id/idTareasCompletadas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:layout_marginBottom="25dp"
+        android:backgroundTint="#000000"
+        android:onClick="Tcompletadas"
+        android:text="@string/idTCom"
+        app:layout_constraintBottom_toTopOf="@+id/taskListView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addButton"
+        app:layout_constraintTop_toBottomOf="@+id/taskEditText" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

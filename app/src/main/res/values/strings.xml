@@ -6,5 +6,9 @@
     <string name="descripcionFondo">TODO</string>
     <string name="editTextIngreseSuTarea">ingrese su tarea</string>
     <string name="buttonAgreagrTarea">Agregar Tarea</string>
+    <string name="menuText">MENU</string>
+    <string name="listar">LISTAR TAREAS</string>
+    <string name="completadas">COMPLETADAS</string>
+    <string name="idTCom">Tareas completadas</string>
 
 </resources>

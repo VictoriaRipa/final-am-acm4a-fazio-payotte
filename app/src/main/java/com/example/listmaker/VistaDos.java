@@ -1,6 +1,9 @@
 package com.example.listmaker;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -13,6 +16,7 @@ import java.util.List;
         private ArrayAdapter<String> taskAdapter;
         private EditText taskEditText;
         private ListView taskListView;
+        public  Completadas completadas;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,7 @@ import java.util.List;
             Button addButton = findViewById(R.id.addButton);
 
             addButton.setOnClickListener(view -> addTask());
+             completadas  = new Completadas();
 
             // Esto cuando haces click elimina la tarea
             taskListView.setOnItemClickListener((parent, view, position, id) -> deleteTask(position));
@@ -47,8 +52,16 @@ import java.util.List;
         }
 
         private void deleteTask(int position) {
+            String completedTask = taskAdapter.getItem(position);
             // Elimina la tarea seleccionada
-            taskAdapter.remove(taskAdapter.getItem(position));
+            taskAdapter.remove(completedTask);
+            completadas.agregarALista(completedTask);
+
+        }
+
+        public void Tcompletadas(View view){
+            Intent comp =new Intent(this,Completadas.class);
+            startActivity(comp);
         }
     }
 
