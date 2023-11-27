@@ -70,10 +70,10 @@ public class VistaDos extends AppCompatActivity {
     private void moveToCompleted(int position) {
         String tarea = taskAdapter.getItem(position);
 
-        // Eliminar la tarea de la lista actual
-        taskAdapter.remove(tarea);
         // Agregar la tarea a la lista completada
         completadas.agregarALista(tarea);
+        // Eliminar la tarea de la lista actual
+        taskAdapter.remove(tarea);
         // Notificar al adaptador que los datos han cambiado
         taskAdapter.notifyDataSetChanged();
         Toast.makeText(this, "Tarea movida a Completadas", Toast.LENGTH_SHORT).show();

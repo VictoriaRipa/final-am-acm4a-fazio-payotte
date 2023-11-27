@@ -52,6 +52,7 @@
         android:layout_marginTop="92dp"
         android:layout_marginBottom="287dp"
         android:backgroundTint="#050505"
+        android:onClick="completadas"
         android:text="@string/completadas"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
