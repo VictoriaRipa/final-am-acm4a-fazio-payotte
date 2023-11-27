@@ -1,4 +1,5 @@
 package com.example.listmaker;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,17 +11,15 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VistaDos extends AppCompatActivity implements Serializable {
+public class VistaDos extends AppCompatActivity {
     private List<String> tasks;
     private ArrayAdapter<String> taskAdapter;
     private EditText taskEditText;
     private ListView taskListView;
     private Completadas completadas;
-
 
     private static final long DOUBLE_CLICK_TIME_DELTA = 300; // Intervalo para considerar como doble clic
     private long lastClickTime = 0;
@@ -40,7 +39,7 @@ public class VistaDos extends AppCompatActivity implements Serializable {
         Button addButton = findViewById(R.id.addButton);
 
         addButton.setOnClickListener(view -> addTask());
-        completadas  = new Completadas();
+        completadas = new Completadas();
 
         // Esto cuando haces clic elimina la tarea
         taskListView.setOnItemClickListener((parent, view, position, id) -> {
@@ -70,6 +69,7 @@ public class VistaDos extends AppCompatActivity implements Serializable {
 
     private void moveToCompleted(int position) {
         String tarea = taskAdapter.getItem(position);
+
         // Eliminar la tarea de la lista actual
         taskAdapter.remove(tarea);
         // Agregar la tarea a la lista completada
@@ -78,16 +78,11 @@ public class VistaDos extends AppCompatActivity implements Serializable {
         taskAdapter.notifyDataSetChanged();
         Toast.makeText(this, "Tarea movida a Completadas", Toast.LENGTH_SHORT).show();
     }
-    private void deleteTask(int position) {
-        String completedTask = taskAdapter.getItem(position);
-        // Elimina la tarea seleccionada
-        taskAdapter.remove(completedTask);
-        completadas.agregarALista(completedTask);
-    }
 
     public void Tcompletadas(View view) {
         Intent comp = new Intent(this, Completadas.class);
-        comp.putStringArrayListExtra("completadas", (ArrayList<String>) completadas.getCompletadas());
+        comp.putStringArrayListExtra("completadas", new ArrayList<>(completadas.getCompletadas()));
         startActivity(comp);
     }
 }
+

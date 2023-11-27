@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -34,12 +35,18 @@ public class Completadas extends AppCompatActivity {
             // Notificar al adaptador que los datos han cambiado
             completadasAdapter.notifyDataSetChanged();
         }
+        Log.d("Completadas", "Contenido de completadas después de onCreate: " + completadas);
+
     }
 
 
     public void agregarALista(String ag) {
-        completadas.add(ag);
-        completadasAdapter.notifyDataSetChanged(); // Notificar que los datos han cambiado
+        if (completadasAdapter != null) {
+            completadas.add(ag);
+            completadasAdapter.notifyDataSetChanged();
+        } else {
+            Log.e("Completadas", "El adaptador completadasAdapter es nulo");
+        }
     }
 
 
