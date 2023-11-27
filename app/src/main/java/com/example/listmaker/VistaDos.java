@@ -19,7 +19,7 @@ public class VistaDos extends AppCompatActivity {
     private ArrayAdapter<String> taskAdapter;
     private EditText taskEditText;
     private ListView taskListView;
-    private Completadas completadas;
+    private List <String> completadas = new ArrayList<>();
 
     private static final long DOUBLE_CLICK_TIME_DELTA = 300; // Intervalo para considerar como doble clic
     private long lastClickTime = 0;
@@ -39,7 +39,8 @@ public class VistaDos extends AppCompatActivity {
         Button addButton = findViewById(R.id.addButton);
 
         addButton.setOnClickListener(view -> addTask());
-        completadas = new Completadas();
+
+
 
         // Esto cuando haces clic elimina la tarea
         taskListView.setOnItemClickListener((parent, view, position, id) -> {
@@ -71,18 +72,25 @@ public class VistaDos extends AppCompatActivity {
         String tarea = taskAdapter.getItem(position);
 
         // Agregar la tarea a la lista completada
-        completadas.agregarALista(tarea);
+        completadas.add(tarea);
+
         // Eliminar la tarea de la lista actual
         taskAdapter.remove(tarea);
+
         // Notificar al adaptador que los datos han cambiado
         taskAdapter.notifyDataSetChanged();
+
+        // Mostrar un mensaje
         Toast.makeText(this, "Tarea movida a Completadas", Toast.LENGTH_SHORT).show();
     }
 
     public void Tcompletadas(View view) {
-        Intent comp = new Intent(this, Completadas.class);
-        comp.putStringArrayListExtra("completadas", new ArrayList<>(completadas.getCompletadas()));
-        startActivity(comp);
+        Intent intent = new Intent(this,Completadas.class);
+        intent.putStringArrayListExtra("completadas", (ArrayList<String>) completadas);
+        startActivity(intent);
+    }
+
+    public List<String> getCompletadas() {
+        return completadas;
     }
 }
-

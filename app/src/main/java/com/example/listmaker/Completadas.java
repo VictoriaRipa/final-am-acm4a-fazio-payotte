@@ -23,42 +23,20 @@ public class Completadas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_completadas);
 
-        completadasAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, completadas);
-        ListView completadasListView = findViewById(R.id.completadasListView);
+        ListView completadasListView = findViewById(R.id.listViewCompletadas);
+        completadasAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
         completadasListView.setAdapter(completadasAdapter);
 
-        // Obtener la lista de tareas completadas del Intent
-        List<String> completadasList = getIntent().getStringArrayListExtra("completadas");
+        Intent intent = getIntent();
+        List<String> completadasList = intent.getStringArrayListExtra("completadas");
         if (completadasList != null) {
-            // Agregar las tareas completadas a la lista
-            completadas.addAll(completadasList);
-            // Notificar al adaptador que los datos han cambiado
-            completadasAdapter.notifyDataSetChanged();
-        }
-        Log.d("Completadas", "Contenido de completadas después de onCreate: " + completadas);
-
-    }
-
-
-    public void agregarALista(String ag) {
-        if (completadasAdapter != null) {
-            completadas.add(ag);
-            completadasAdapter.notifyDataSetChanged();
-        } else {
-            Log.e("Completadas", "El adaptador completadasAdapter es nulo");
+            completadasAdapter.addAll(completadasList);
         }
     }
 
-
-
-    public void Tcompletadas(View view){
-        Intent comp = new Intent(this, Completadas.class);
-        comp.putStringArrayListExtra("completadas", new ArrayList<>(completadas));
-        startActivity(comp);
-    }
-
-    public List<String> getCompletadas() {
-        return completadas;
+    public void listarTareas(View view) {
+        Intent intent = new Intent(this,VistaDos.class);
+        startActivity(intent);
     }
 
 }
