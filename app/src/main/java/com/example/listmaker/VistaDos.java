@@ -5,63 +5,89 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Button;
+import android.widget.Toast;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-    public class VistaDos extends AppCompatActivity {
-        private List<String> tasks;
-        private ArrayAdapter<String> taskAdapter;
-        private EditText taskEditText;
-        private ListView taskListView;
-        public  Completadas completadas;
+public class VistaDos extends AppCompatActivity implements Serializable {
+    private List<String> tasks;
+    private ArrayAdapter<String> taskAdapter;
+    private EditText taskEditText;
+    private ListView taskListView;
+    private Completadas completadas;
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_vista_dos);
 
-            tasks = new ArrayList<>();
-            taskAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, tasks);
+    private static final long DOUBLE_CLICK_TIME_DELTA = 300; // Intervalo para considerar como doble clic
+    private long lastClickTime = 0;
 
-            taskListView = findViewById(R.id.taskListView);
-            taskListView.setAdapter(taskAdapter);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_vista_dos);
 
-            taskEditText = findViewById(R.id.taskEditText);
-            Button addButton = findViewById(R.id.addButton);
+        tasks = new ArrayList<>();
+        taskAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, tasks);
 
-            addButton.setOnClickListener(view -> addTask());
-             completadas  = new Completadas();
+        taskListView = findViewById(R.id.taskListView);
+        taskListView.setAdapter(taskAdapter);
 
-            // Esto cuando haces click elimina la tarea
-            taskListView.setOnItemClickListener((parent, view, position, id) -> deleteTask(position));
-        }
+        taskEditText = findViewById(R.id.taskEditText);
+        Button addButton = findViewById(R.id.addButton);
 
-        private void addTask() {
-            String taskText = taskEditText.getText().toString();
+        addButton.setOnClickListener(view -> addTask());
+        completadas  = new Completadas();
 
-            if (!taskText.isEmpty()) {
-                // Agrega la tarea
-                taskAdapter.add(taskText);
-
-                // Borra el texto
-                taskEditText.setText("");
+        // Esto cuando haces clic elimina la tarea
+        taskListView.setOnItemClickListener((parent, view, position, id) -> {
+            // Detectar doble clic (intervalo corto entre clics)
+            long clickTime = System.currentTimeMillis();
+            if (clickTime - lastClickTime < DOUBLE_CLICK_TIME_DELTA) {
+                // Doble clic detectado, mover a completadas
+                moveToCompleted(position);
+            } else {
+                // Primer clic, actualizar el tiempo del último clic
+                lastClickTime = clickTime;
             }
-        }
+        });
+    }
 
-        private void deleteTask(int position) {
-            String completedTask = taskAdapter.getItem(position);
-            // Elimina la tarea seleccionada
-            taskAdapter.remove(completedTask);
-            completadas.agregarALista(completedTask);
+    private void addTask() {
+        String taskText = taskEditText.getText().toString();
 
-        }
+        if (!taskText.isEmpty()) {
+            // Agrega la tarea
+            taskAdapter.add(taskText);
 
-        public void Tcompletadas(View view){
-            Intent comp =new Intent(this,Completadas.class);
-            startActivity(comp);
+            // Borra el texto
+            taskEditText.setText("");
         }
     }
 
+    private void moveToCompleted(int position) {
+        String tarea = taskAdapter.getItem(position);
+        // Eliminar la tarea de la lista actual
+        taskAdapter.remove(tarea);
+        // Agregar la tarea a la lista completada
+        completadas.agregarALista(tarea);
+        // Notificar al adaptador que los datos han cambiado
+        taskAdapter.notifyDataSetChanged();
+        Toast.makeText(this, "Tarea movida a Completadas", Toast.LENGTH_SHORT).show();
+    }
+    private void deleteTask(int position) {
+        String completedTask = taskAdapter.getItem(position);
+        // Elimina la tarea seleccionada
+        taskAdapter.remove(completedTask);
+        completadas.agregarALista(completedTask);
+    }
+
+    public void Tcompletadas(View view) {
+        Intent comp = new Intent(this, Completadas.class);
+        comp.putStringArrayListExtra("completadas", (ArrayList<String>) completadas.getCompletadas());
+        startActivity(comp);
+    }
+}
