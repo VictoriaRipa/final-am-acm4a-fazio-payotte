@@ -40,19 +40,9 @@ public class VistaDos extends AppCompatActivity {
 
         addButton.setOnClickListener(view -> addTask());
 
-
-
-        // Esto cuando haces clic elimina la tarea
+        // Mover la tarea a completadas cuando se hace clic en un elemento
         taskListView.setOnItemClickListener((parent, view, position, id) -> {
-            // Detectar doble clic (intervalo corto entre clics)
-            long clickTime = System.currentTimeMillis();
-            if (clickTime - lastClickTime < DOUBLE_CLICK_TIME_DELTA) {
-                // Doble clic detectado, mover a completadas
-                moveToCompleted(position);
-            } else {
-                // Primer clic, actualizar el tiempo del último clic
-                lastClickTime = clickTime;
-            }
+            moveToCompleted(position);
         });
     }
 
