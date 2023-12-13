@@ -10,5 +10,10 @@
     <string name="listar">LISTAR TAREAS</string>
     <string name="completadas">COMPLETADAS</string>
     <string name="idTCom">Tareas completadas</string>
+    <string name="mostImg">Mostrar Imagen</string>
+    <string name="urlingresada">Mostrar Imagen</string>
+    <string name="imgUrl">Imagen desde URL</string>
+
+
 
 </resources>

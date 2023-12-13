@@ -74,6 +74,8 @@ public class VistaDos extends AppCompatActivity {
         Toast.makeText(this, "Tarea movida a Completadas", Toast.LENGTH_SHORT).show();
     }
 
+
+
     public void Tcompletadas(View view) {
         Intent intent = new Intent(this,Completadas.class);
         intent.putStringArrayListExtra("completadas", (ArrayList<String>) completadas);

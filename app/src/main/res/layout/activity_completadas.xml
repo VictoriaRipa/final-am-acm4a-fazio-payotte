@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="44dp"
         android:backgroundTint="#040404"
-        android:onClick="listarTareas"
+        android:onClick="volverAVistaDos"
         android:text="Ir a Listar Tareas"
         app:layout_constraintBottom_toBottomOf="@+id/backgroundImageView"
         app:layout_constraintEnd_toEndOf="parent"

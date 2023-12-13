@@ -24,5 +24,8 @@ public class Menu extends AppCompatActivity {
         Intent completadas =new Intent(this,Completadas.class);
         startActivity(completadas);
     }
-
+    public void Imagen(View view){
+        Intent img =new Intent(this, Imagen.class);
+        startActivity(img);
+    }
 }

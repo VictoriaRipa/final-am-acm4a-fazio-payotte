@@ -14,7 +14,6 @@ import java.util.List;
 
 public class Completadas extends AppCompatActivity {
 
-    private List<String>completadas = new ArrayList<>();
     private ArrayAdapter<String> completadasAdapter;
 
 
@@ -34,9 +33,9 @@ public class Completadas extends AppCompatActivity {
         }
     }
 
-    public void listarTareas(View view) {
-        Intent intent = new Intent(this,VistaDos.class);
-        startActivity(intent);
+
+    public void volverAVistaDos(View view) {
+        finish(); // Esto cierra la actividad actual (Completadas) y regresa a la instancia previa de VistaDos
     }
 
 }

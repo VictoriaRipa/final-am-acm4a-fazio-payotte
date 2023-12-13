@@ -13,6 +13,12 @@
         android:theme="@style/Theme.ListMaker"
         tools:targetApi="31">
         <activity
+            android:name=".ImgDowloader"
+            android:exported="false" />
+        <activity
+            android:name=".Imagen"
+            android:exported="false" />
+        <activity
             android:name=".Completadas"
             android:exported="false" />
         <activity
