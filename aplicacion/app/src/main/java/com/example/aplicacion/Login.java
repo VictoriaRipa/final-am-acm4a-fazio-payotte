@@ -54,7 +54,6 @@ public class Login extends AppCompatActivity {
                             Toast.makeText(Login.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
                             Intent menu = new Intent(Login.this,Menu.class);
                             startActivity(menu);
-                            // Aquí puedes realizar acciones adicionales después del inicio de sesión exitoso
                         } else {
                             showErrorMessage("Fallo en el inicio de sesión");
                         }
