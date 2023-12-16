@@ -19,14 +19,12 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-
 public class Registro extends AppCompatActivity {
     private EditText editTextName, editTextEmail, editTextPassword;
     private Button buttonRegister, buttonBack;
 
     private FirebaseAuth mAuth;
     private DatabaseReference usersRef;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,12 +47,10 @@ public class Registro extends AppCompatActivity {
             }
         });
 
-
-        // Configura el OnClickListener para el botón de retroceso
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish(); // Cierra la actividad actual y vuelve atrás
+                finish();
             }
         });
     }
@@ -67,12 +63,11 @@ public class Registro extends AppCompatActivity {
         if (TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
         } else {
-                mAuth.createUserWithEmailAndPassword(email, password)
+            mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(Registro.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                // Registro exitoso
                                 FirebaseUser currentUser = mAuth.getCurrentUser();
                                 if (currentUser != null) {
                                     String userID = currentUser.getUid();
@@ -81,7 +76,7 @@ public class Registro extends AppCompatActivity {
                                     String name = editTextName.getText().toString().trim();
                                     String email = editTextEmail.getText().toString().trim();
 
-                                    Usuario newUser = new Usuario(name, email /* otros campos */);
+                                    Usuario newUser = new Usuario(name, email);
 
                                     currentUserRef.setValue(newUser)
                                             .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -89,7 +84,11 @@ public class Registro extends AppCompatActivity {
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     if (task.isSuccessful()) {
                                                         Toast.makeText(Registro.this, "Usuario registrado exitosamente", Toast.LENGTH_SHORT).show();
-                                                        // Aquí puedes redirigir a otra actividad o realizar otras acciones después del registro exitoso
+
+                                                        // Redirige al inicio de sesión (Login) después del registro exitoso
+                                                        Intent intent = new Intent(Registro.this, Login.class);
+                                                        startActivity(intent);
+                                                        finish(); // Cierra la actividad actual
                                                     } else {
                                                         Toast.makeText(Registro.this, "Error al registrar usuario", Toast.LENGTH_SHORT).show();
                                                     }
@@ -97,17 +96,17 @@ public class Registro extends AppCompatActivity {
                                             });
                                 }
                             } else {
-                                // Error en el registro
                                 Toast.makeText(Registro.this, "Error al crear cuenta: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
         }
     }
+
     private void cerrarSesion() {
         FirebaseAuth.getInstance().signOut();
         Intent intent = new Intent(this, Login.class);
         startActivity(intent);
-        finish(); // Cierra la actividad actual
+        finish();
     }
 }
