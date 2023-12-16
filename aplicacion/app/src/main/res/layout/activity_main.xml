@@ -49,22 +49,24 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#070707"
         android:onClick="menu"
-        android:text="@string/boton_ingresar"
+        android:text="INICIAR SESION"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/backgroundImageView"
-        app:layout_constraintVertical_bias="0.764" />
+        app:layout_constraintVertical_bias="0.748" />
 
     <Button
         android:id="@+id/btnRegis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="68dp"
         android:backgroundTint="#090909"
         android:onClick="registrarse"
-        android:text="@string/btnRegist"
+        android:text="REGISTRARSE"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/button" />
 
