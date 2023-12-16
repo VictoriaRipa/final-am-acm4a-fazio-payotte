@@ -17,7 +17,8 @@
             android:exported="false" />
         <activity
             android:name=".Completadas"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ImageDownloaderTask"
             android:exported="false" />
@@ -26,7 +27,8 @@
             android:exported="false" />
         <activity
             android:name=".VistaDos"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".Menu"
             android:exported="false" />
