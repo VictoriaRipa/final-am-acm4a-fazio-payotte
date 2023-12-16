@@ -12,8 +12,7 @@
     <string name="idTCom">Tareas completadas</string>
     <string name="mostImg">Mostrar Imagen</string>
     <string name="urlingresada">Mostrar Imagen</string>
-    <string name="imgUrl">Foto de la Lista</string>
+    <string name="imgUrl">Imagen desde URL</string>
     <string name="btnRegist">Registrarse</string>
-    <string name="textRegist">Ingrese informacion de registro</string>
-    <string name="textLogin">Login</string>
+
 </resources>

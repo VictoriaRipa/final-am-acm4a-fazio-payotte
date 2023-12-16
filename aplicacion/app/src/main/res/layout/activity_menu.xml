@@ -18,6 +18,21 @@
         tools:layout_editor_absoluteY="264dp" />
 
     <Button
+        android:id="@+id/iDcompletadas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="383dp"
+        android:layout_marginBottom="300dp"
+        android:backgroundTint="#050505"
+        android:onClick="completadas"
+        android:text="@string/completadas"
+        app:layout_constraintBottom_toBottomOf="@+id/backgroundImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/backgroundImageView" />
+
+    <Button
         android:id="@+id/mostrarImagen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,24 +41,10 @@
         android:text="@string/imgUrl"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iDcompletadas"
-        app:layout_constraintVertical_bias="0.142" />
-
-    <Button
-        android:id="@+id/iDcompletadas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#050505"
-        android:onClick="completadas"
-        android:text="@string/completadas"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundImageView"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/backgroundImageView"
-        app:layout_constraintVertical_bias="0.651" />
+        app:layout_constraintVertical_bias="0.269" />
 
     <Button
         android:id="@+id/idListar"
@@ -56,23 +57,21 @@
         android:textColorLink="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/iDcompletadas"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idMenu"
-        app:layout_constraintVertical_bias="0.81"
+        app:layout_constraintVertical_bias="0.644"
         app:rippleColor="#020202" />
 
     <TextView
         android:id="@+id/idMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="96dp"
         android:text="@string/menuText"
-        android:textColor="#0B0B0B"
-        android:textSize="60sp"
+        android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/backgroundImageView" />
 

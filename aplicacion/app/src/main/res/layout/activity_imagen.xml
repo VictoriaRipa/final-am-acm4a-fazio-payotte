@@ -34,7 +34,6 @@
         android:id="@+id/carImg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#090909"
         android:onClick="cargarImagen"
         android:text="@string/mostImg"
         app:layout_constraintBottom_toBottomOf="parent"
