@@ -1,5 +1,6 @@
 package com.example.aplicacion;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -21,10 +22,11 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Registro extends AppCompatActivity {
     private EditText editTextName, editTextEmail, editTextPassword;
-    private Button buttonRegister;
+    private Button buttonRegister, buttonBack;
 
     private FirebaseAuth mAuth;
     private DatabaseReference usersRef;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +40,21 @@ public class Registro extends AppCompatActivity {
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonRegister = findViewById(R.id.buttonRegister);
+        buttonBack = findViewById(R.id.buttonBack);
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 registerUser();
+            }
+        });
+
+
+        // Configura el OnClickListener para el botón de retroceso
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish(); // Cierra la actividad actual y vuelve atrás
             }
         });
     }
@@ -91,5 +103,11 @@ public class Registro extends AppCompatActivity {
                         }
                     });
         }
+    }
+    private void cerrarSesion() {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(this, Login.class);
+        startActivity(intent);
+        finish(); // Cierra la actividad actual
     }
 }
