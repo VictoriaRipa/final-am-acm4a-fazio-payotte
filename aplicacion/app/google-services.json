@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "91596140742",
+    "project_id": "aplicacion-3726c",
+    "storage_bucket": "aplicacion-3726c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:91596140742:android:0090ac1e2428f6331ba7c7",
+        "android_client_info": {
+          "package_name": "com.example.aplicacion"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSlUOnYvrkiySEaxU1LLgG56j72U1sdAo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
