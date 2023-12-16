@@ -7,7 +7,6 @@
     tools:context=".Imagen">
 
 
-
     <ImageView
         android:id="@+id/backgroundImageView"
         android:layout_width="match_parent"
@@ -15,8 +14,8 @@
         android:contentDescription="@string/descripcionFondo"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_launcher_foreground"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="264dp" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="58dp" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -34,8 +33,9 @@
         android:id="@+id/carImg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
         android:onClick="cargarImagen"
-        android:text="@string/mostImg"
+        android:text="MOSTRAR IMAGEN"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
