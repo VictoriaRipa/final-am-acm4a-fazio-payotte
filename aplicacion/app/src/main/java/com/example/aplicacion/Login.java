@@ -64,4 +64,10 @@ public class Login extends AppCompatActivity {
     private void showErrorMessage(String message) {
         Toast.makeText(Login.this, message, Toast.LENGTH_SHORT).show();
     }
+
+    public void back (View view){
+        Intent inicio = new Intent(Login.this,MainActivity.class);
+        startActivity(inicio);
+    }
+
 }
