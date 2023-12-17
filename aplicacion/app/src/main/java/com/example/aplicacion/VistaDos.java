@@ -51,7 +51,7 @@ public class VistaDos extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        // Guardar las tareas en SharedPreferences al detener la actividad
+        // Guardar las tareas en SharedPreferences al detener la actividad para no perder la informacion
         saveTasksToSharedPreferences();
     }
 

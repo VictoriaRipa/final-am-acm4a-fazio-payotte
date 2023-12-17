@@ -26,32 +26,24 @@ public class Menu extends AppCompatActivity {
             }
         });
 
-        // Restaurar datos si savedInstanceState no es nulo
+        // restaurar los datos si no es nulo
         if (savedInstanceState != null) {
             miInfo = savedInstanceState.getString("miInfo");
-
-            // Aquí puedes utilizar miInfo para cualquier tarea necesaria
-            // Por ejemplo, mostrar los datos en alguna vista
         }
 
-        // Resto del código de tu actividad Menu
-        // ...
     }
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        // Guardar datos relevantes al salir de la actividad
+        // Guardar datos  al salir de la actividad
         // Guardar la información actual en miInfo
-        miInfo = "Aquí guardas tu información actual"; // Ejemplo: podrías asignar tu información actual a miInfo
+        miInfo = "Aquí guardas tu información actual";
 
         // Guardar en el Bundle
         outState.putString("miInfo", miInfo);
     }
-
-    // Resto de tus métodos y funciones
-    // ...
 
     private void cerrarSesion() {
         FirebaseAuth.getInstance().signOut();
@@ -79,7 +71,4 @@ public class Menu extends AppCompatActivity {
         Intent info = new Intent(this, ActualizarInformacionActivity.class);
         startActivity(info);
     }
-
-    // Otros métodos y funciones que puedas tener
-    // ...
 }
