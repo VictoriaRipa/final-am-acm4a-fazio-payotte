@@ -45,5 +45,9 @@ public class Menu extends AppCompatActivity {
         Intent img = new Intent(this, Imagen.class);
         startActivity(img);
     }
+    public void actualizarInfo(View view){
+        Intent info = new Intent(this, ActualizarInformacionActivity.class);
+        startActivity(info);
+    }
 }
 

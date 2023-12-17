@@ -14,5 +14,7 @@
     <string name="urlingresada">Mostrar Imagen</string>
     <string name="imgUrl">Imagen desde URL</string>
     <string name="btnRegist">Registrarse</string>
+    <string name="actualizarInfo"> PERFIL</string>
+    <string name="actualizarInformacion"> ACTUALIZAR INFORMACION</string>
 
 </resources>
