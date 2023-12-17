@@ -2,6 +2,7 @@ package com.example.aplicacion;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -29,6 +30,12 @@ public class Imagen extends AppCompatActivity {
             // Manejo si la URL está vacía
         }
     }
+
+    public void volverAlMenu(View view){
+        Intent menu =new Intent(Imagen.this,Menu.class);
+        startActivity(menu);
+    }
+
 
     // url de prueba:https://www.thesprucepets.com/thmb/hxWjs7evF2hP1Fb1c1HAvRi_Rw0=/2765x0/filters:no_upscale():strip_icc()/chinese-dog-breeds-4797219-hero-2a1e9c5ed2c54d00aef75b05c5db399c.jpg
 

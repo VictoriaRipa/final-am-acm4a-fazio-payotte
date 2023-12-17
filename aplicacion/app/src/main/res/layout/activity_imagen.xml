@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="volverAlMenu"
     tools:context=".Imagen">
 
 
@@ -48,14 +49,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:focusableInTouchMode='true'
         android:inputType="text"
-        android:textIsSelectable = 'true'
-        android:focusableInTouchMode = 'true'
         android:minHeight="48dp"
         android:text="@string/urlingresada"
+        android:textIsSelectable='true'
         app:layout_constraintBottom_toTopOf="@+id/carImg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#070707"
+        android:onClick="volverAlMenu"
+        android:text="Volver al menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carImg" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

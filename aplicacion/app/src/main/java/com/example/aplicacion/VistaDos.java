@@ -1,7 +1,6 @@
 package com.example.aplicacion;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -10,18 +9,19 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class VistaDos extends AppCompatActivity {
     private List<String> tasks;
     private ArrayAdapter<String> taskAdapter;
     private EditText taskEditText;
     private ListView taskListView;
-    private List <String> completadas = new ArrayList<>();
-
-    private static final long DOUBLE_CLICK_TIME_DELTA = 300; // Intervalo para considerar como doble clic
-    private long lastClickTime = 0;
+    private List<String> completadas = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,16 @@ public class VistaDos extends AppCompatActivity {
         taskListView.setOnItemClickListener((parent, view, position, id) -> {
             moveToCompleted(position);
         });
+
+        // Cargar las tareas almacenadas
+        loadTasksFromSharedPreferences();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // Guardar las tareas en SharedPreferences al detener la actividad
+        saveTasksToSharedPreferences();
     }
 
     private void addTask() {
@@ -73,7 +83,23 @@ public class VistaDos extends AppCompatActivity {
         Toast.makeText(this, "Tarea movida a Completadas", Toast.LENGTH_SHORT).show();
     }
 
+    private void saveTasksToSharedPreferences() {
+        SharedPreferences sharedPreferences = getSharedPreferences("tasks_prefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
 
+        Set<String> taskSet = new HashSet<>(tasks);
+        editor.putStringSet("task_list", taskSet);
+        editor.apply();
+    }
+
+    private void loadTasksFromSharedPreferences() {
+        SharedPreferences sharedPreferences = getSharedPreferences("tasks_prefs", MODE_PRIVATE);
+        Set<String> taskSet = sharedPreferences.getStringSet("task_list", new HashSet<>());
+
+        tasks.clear();
+        tasks.addAll(taskSet);
+        taskAdapter.notifyDataSetChanged();
+    }
 
     public void Tcompletadas(View view) {
         Intent intent = new Intent(this,Completadas.class);
@@ -81,7 +107,8 @@ public class VistaDos extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public List<String> getCompletadas() {
-        return completadas;
+    public void VolverAMenu(View view) {
+        Intent menu = new Intent(this,Menu.class);
+        startActivity(menu);
     }
 }
