@@ -1,8 +1,6 @@
 package com.example.aplicacion;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,12 +19,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
 public class ActualizarInformacionActivity extends AppCompatActivity {
 
     private TextView textViewEmail;
     private TextView textViewUserName;
     private EditText editTextNewName;
     private Button buttonUpdate;
+    private Button backButton;
 
     private FirebaseAuth mAuth;
     private DatabaseReference usersRef;
@@ -44,6 +44,17 @@ public class ActualizarInformacionActivity extends AppCompatActivity {
         textViewUserName = findViewById(R.id.textViewUserName);
         editTextNewName = findViewById(R.id.editTextNewName);
         buttonUpdate = findViewById(R.id.buttonUpdate);
+        backButton = findViewById(R.id.backButton);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Lógica para regresar al menú principal
+                Intent menu = new Intent(ActualizarInformacionActivity.this, Menu.class);
+                startActivity(menu);
+                finish(); // Opcional, dependiendo de la navegación que desees
+            }
+        });
 
         if (currentUser != null) {
             String userID = currentUser.getUid();
@@ -65,7 +76,7 @@ public class ActualizarInformacionActivity extends AppCompatActivity {
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
-                    Toast.makeText(ActualizarInformacionActivity.this, "error en traer informacion de la base de datos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ActualizarInformacionActivity.this, "Error al traer información de la base de datos", Toast.LENGTH_SHORT).show();
                 }
             });
 
@@ -74,17 +85,18 @@ public class ActualizarInformacionActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     String newName = editTextNewName.getText().toString().trim();
 
-                    if (!TextUtils.isEmpty(newName)) {
+                    if (!newName.isEmpty()) {
                         updateUserInformation(newName);
-                        Intent menu = new Intent(ActualizarInformacionActivity.this,Menu.class);
+                        Intent menu = new Intent(ActualizarInformacionActivity.this, Menu.class);
                         startActivity(menu);
+                        finish(); // Opcional, dependiendo de la navegación que desees
                     } else {
                         Toast.makeText(ActualizarInformacionActivity.this, "Por favor, ingresa un nuevo nombre", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
         } else {
-            Toast.makeText(ActualizarInformacionActivity.this, "Error el usuario no esta logueado o cerro la sesion", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ActualizarInformacionActivity.this, "Error: el usuario no está logueado o cerró la sesión", Toast.LENGTH_SHORT).show();
         }
     }
 
