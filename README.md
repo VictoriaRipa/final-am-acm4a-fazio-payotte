@@ -1,4 +1,4 @@
-# Final-2-am-acm4a-fazio-payotte
+# Final-am-acm4a-fazio-payotte
 Repositorio de Aplicaciones Moviles
 
 Integrantes : 
