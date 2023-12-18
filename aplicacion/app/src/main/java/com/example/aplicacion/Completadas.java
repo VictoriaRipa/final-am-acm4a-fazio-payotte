@@ -36,7 +36,7 @@ public class Completadas extends AppCompatActivity {
 
 
     public void volverAVistaDos(View view) {
-        finish(); // Esto cierra la actividad actual (Completadas) y regresa a la instancia previa de VistaDos
+        finish(); // Esto cierra la actividad actual (Completadas) y regresa a la instancia previa de ListarTareas
     }
 
 }
