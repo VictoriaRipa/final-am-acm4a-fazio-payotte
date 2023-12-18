@@ -65,7 +65,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#070707"
         android:onClick="volverAlMenu"
-        android:text="Volver al menu"
+        android:text="VOLVER AL MENU"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
