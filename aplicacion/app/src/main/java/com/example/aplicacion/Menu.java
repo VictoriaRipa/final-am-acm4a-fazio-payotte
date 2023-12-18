@@ -53,7 +53,7 @@ public class Menu extends AppCompatActivity {
     }
 
     public void ingresando(View view){
-        Intent ingresarAPrimerVista = new Intent(this, VistaDos.class);
+        Intent ingresarAPrimerVista = new Intent(this, ListarTareas.class);
         startActivity(ingresarAPrimerVista);
     }
 

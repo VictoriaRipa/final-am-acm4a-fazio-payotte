@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class VistaDos extends AppCompatActivity {
+public class ListarTareas extends AppCompatActivity {
     private List<String> tasks;
     private ArrayAdapter<String> taskAdapter;
     private EditText taskEditText;
