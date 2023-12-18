@@ -29,6 +29,7 @@ public class Login extends AppCompatActivity {
         editTextUsername = findViewById(R.id.editTextUsername);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
+        // Configuración del botón para iniciar sesión
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +45,7 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+    // Método para realizar la autenticación
 
     private void signIn(final String email, final String password) {
         mAuth.signInWithEmailAndPassword(email, password)

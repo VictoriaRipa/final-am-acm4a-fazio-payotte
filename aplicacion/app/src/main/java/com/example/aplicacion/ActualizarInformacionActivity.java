@@ -35,7 +35,7 @@ public class ActualizarInformacionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actualizar_informacion);
-
+// Inicialización de Firebase y vistas
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         usersRef = FirebaseDatabase.getInstance().getReference().child("users");
@@ -46,15 +46,18 @@ public class ActualizarInformacionActivity extends AppCompatActivity {
         buttonUpdate = findViewById(R.id.buttonUpdate);
         backButton = findViewById(R.id.backButton);
 
+        // Configuración del botón para volver al menú principal
+
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Lógica para regresar al menú principal
                 Intent menu = new Intent(ActualizarInformacionActivity.this, Menu.class);
                 startActivity(menu);
-                finish(); // Opcional, dependiendo de la navegación que desees
+                finish();
             }
         });
+        // Verifica si el usuario está autenticado
 
         if (currentUser != null) {
             String userID = currentUser.getUid();
@@ -79,6 +82,7 @@ public class ActualizarInformacionActivity extends AppCompatActivity {
                     Toast.makeText(ActualizarInformacionActivity.this, "Error al traer información de la base de datos", Toast.LENGTH_SHORT).show();
                 }
             });
+            // Configuración del botón para actualizar información
 
             buttonUpdate.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -99,6 +103,7 @@ public class ActualizarInformacionActivity extends AppCompatActivity {
             Toast.makeText(ActualizarInformacionActivity.this, "Error: el usuario no está logueado o cerró la sesión", Toast.LENGTH_SHORT).show();
         }
     }
+    // Método para actualizar la información del usuario en la base de datos
 
     private void updateUserInformation(String newName) {
         FirebaseUser currentUser = mAuth.getCurrentUser();

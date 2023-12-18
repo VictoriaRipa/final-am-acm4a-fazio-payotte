@@ -27,13 +27,18 @@ public class Completadas extends AppCompatActivity {
         completadasAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
         completadasListView.setAdapter(completadasAdapter);
 
+        // Recibe la lista de tareas completadas desde el Intent
+
         Intent intent = getIntent();
         List<String> completadasList = intent.getStringArrayListExtra("completadas");
         if (completadasList != null) {
+            // Agrega las tareas completadas al adaptador
+
             completadasAdapter.addAll(completadasList);
         }
     }
 
+    // Método para volver a la actividad anterior
 
     public void volverAVistaDos(View view) {
         finish(); // Esto cierra la actividad actual (Completadas) y regresa a la instancia previa de ListarTareas

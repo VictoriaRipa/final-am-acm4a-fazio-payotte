@@ -36,6 +36,7 @@ public class ListarTareas extends AppCompatActivity {
 
         taskEditText = findViewById(R.id.taskEditText);
         Button addButton = findViewById(R.id.addButton);
+        // Configuración del botón para agregar una tarea
 
         addButton.setOnClickListener(view -> addTask());
 
@@ -47,6 +48,7 @@ public class ListarTareas extends AppCompatActivity {
         // Cargar las tareas almacenadas
         loadTasksFromSharedPreferences();
     }
+    // Guardar las tareas en SharedPreferences al detener la actividad
 
     @Override
     protected void onStop() {
@@ -54,6 +56,7 @@ public class ListarTareas extends AppCompatActivity {
         // Guardar las tareas en SharedPreferences al detener la actividad para no perder la informacion
         saveTasksToSharedPreferences();
     }
+    // Método para agregar una tarea
 
     private void addTask() {
         String taskText = taskEditText.getText().toString();
@@ -66,6 +69,7 @@ public class ListarTareas extends AppCompatActivity {
             taskEditText.setText("");
         }
     }
+    // Método para mover la tarea a la lista de completadas
 
     private void moveToCompleted(int position) {
         String tarea = taskAdapter.getItem(position);
@@ -82,6 +86,7 @@ public class ListarTareas extends AppCompatActivity {
         // Mostrar un mensaje
         Toast.makeText(this, "Tarea movida a Completadas", Toast.LENGTH_SHORT).show();
     }
+    // Método para guardar las tareas en SharedPreferences
 
     private void saveTasksToSharedPreferences() {
         SharedPreferences sharedPreferences = getSharedPreferences("tasks_prefs", MODE_PRIVATE);

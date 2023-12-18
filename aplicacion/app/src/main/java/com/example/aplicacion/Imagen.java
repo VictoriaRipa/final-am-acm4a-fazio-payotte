@@ -17,6 +17,7 @@ public class Imagen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_imagen);
+        // Inicialización de vistas
 
         imageView = findViewById(R.id.imageView);
         urlEditText = findViewById(R.id.urlingresada);

@@ -15,6 +15,8 @@ class ImageDownloaderTask extends AsyncTask<String, Void, Bitmap> {
         this.imageView = imageView;
     }
 
+    // Tarea asincrónica para descargar imágenes
+
     @Override
     protected Bitmap doInBackground(String... urls) {
         String urlDisplay = urls[0];
@@ -32,6 +34,7 @@ class ImageDownloaderTask extends AsyncTask<String, Void, Bitmap> {
         }
         return bitmap;
     }
+    // Después de la descarga, establece la imagen en el ImageView
 
     @Override
     protected void onPostExecute(Bitmap result) {
